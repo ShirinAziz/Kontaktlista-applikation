@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function add() {
+        const nameInput = document.getElementById("name").value;
+        const phoneInput = document.getElementById("phonenumber").value;
+
+        if (nameInput && phoneInput) {
+          console.log("hello");
+          const form = document.getElementById("contactlistform");
+          form.reset();
+
+          document.querySelector(
+            ".contactlist"
+          ).innerHTML = `${nameInput} ${phoneInput}`;
+        } else {
+          const message = "Var god fyll i båda fälten";
+          document.getElementById("errormessage").innerHTML = message;
+        }
+      }
+    </script>
+
+    <form id="contactlistform">
+      <input id="name" type="text" placeholder="Namn.." />
+      <input id="phonenumber" type="tel" placeholder="Telefon.." />
+      <button type="button" onclick="add()">Skapa</button>
+      <button>Radera lista</button>
+    </form>
+    <p id="errormessage"></p>
+    <h2>Kontaktlista</h2>
+    <p class="contactlist"></p>
+  </body>
+</html>
