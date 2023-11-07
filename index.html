@@ -7,6 +7,8 @@
   </head>
   <body>
     <script>
+      const contactlistArray = [];
+
       function add() {
         const nameInput = document.getElementById("name").value;
         const phoneInput = document.getElementById("phonenumber").value;
@@ -23,6 +25,8 @@
           const message = "Var god fyll i båda fälten";
           document.getElementById("errormessage").innerHTML = message;
         }
+        contactlistArray.push(nameInput, phoneInput);
+        console.log(contactlistArray);
       }
     </script>
 
