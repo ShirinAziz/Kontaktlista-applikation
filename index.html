@@ -5,51 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="style.css" />
+    <script src="javascript.js"></script>
   </head>
   <body>
-    <script>
-      const contactlistArray = [];
-
-      function rendercontactlist() {
-        let contactlistArrayHTML = "";
-
-        for (let i = 0; i < contactlistArray.length; i++) {
-          const contactObject = contactlistArray[i];
-          //const name = contactObject.name;
-          //const phone = contactObject.phone;
-          const { name, phone } = contactObject;
-          // let div = createElement('div');
-          //div.setAttribute('class', 'flex')
-          const html = `
-            <input class='input' type='text' value=${name} readonly> 
-            <input class='input' type='tel' value=${phone} readonly> 
-            <button onclick='contactlistArray.editData(${i}, 1); rendercontactlist();' class='edit' >Ändra</buuton>
-            <button onclick='contactlistArray.splice(${i}, 1);
-                rendercontactlist();' class='remove'>Radera</button>
-            `;
-          contactlistArrayHTML += html;
-        }
-        document.querySelector(".contactlist").innerHTML = contactlistArrayHTML;
-      }
-
-      function add() {
-        const nameInput = document.getElementById("name").value;
-        const phoneInput = document.getElementById("phonenumber").value;
-        let errorMessage = document.getElementById("errormessage");
-        if (nameInput && phoneInput) {
-          const form = document.getElementById("contactlistform");
-          form.reset();
-          contactlistArray.push({ name: nameInput, phone: phoneInput });
-          errorMessage.innerHTML = "";
-
-          rendercontactlist();
-        } else {
-          const message = "Var god fyll i båda fälten!";
-          errorMessage.innerHTML = message;
-        }
-      }
-    </script>
-
     <h1>Kontaktlista</h1>
     <h2>Lägg till ny kontakt</h2>
 

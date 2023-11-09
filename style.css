@@ -23,6 +23,9 @@ body {
   border: none;
   border-radius: 1rem;
 }
+.input-color {
+  background-color: blanchedalmond;
+}
 .add {
   background-color: green;
 }
