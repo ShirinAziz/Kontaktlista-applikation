@@ -16,7 +16,8 @@ body {
   align-items: stretch;
 }
 .name,
-.phone {
+.phone,
+.input {
   font-size: 15px;
   padding: 6px;
   border: none;

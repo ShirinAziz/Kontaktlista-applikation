@@ -21,8 +21,8 @@
           // let div = createElement('div');
           //div.setAttribute('class', 'flex')
           const html = `
-            <div> ${name}</div>
-            <div> ${phone}</div>
+            <input class='input' type='text' value=${name} readonly> 
+            <input class='input' type='tel' value=${phone} readonly> 
             <button onclick='contactlistArray.editData(${i}, 1); rendercontactlist();' class='edit' >Ändra</buuton>
             <button onclick='contactlistArray.splice(${i}, 1);
                 rendercontactlist();' class='remove'>Radera</button>
