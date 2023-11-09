@@ -1,0 +1,47 @@
+body {
+  background-color: blanchedalmond;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.contactlist,
+.form {
+  display: grid;
+  grid-template-columns: 200px 200px 100px 100px;
+  column-gap: 10px;
+  row-gap: 10px;
+  align-items: center;
+}
+.form {
+  align-items: stretch;
+}
+.name,
+.phone {
+  font-size: 15px;
+  padding: 6px;
+  border: none;
+  border-radius: 1rem;
+}
+.add {
+  background-color: green;
+}
+.remove {
+  background-color: darkred;
+}
+.edit {
+  background-color: rgb(111, 98, 82);
+}
+.add,
+.remove,
+.edit {
+  color: white;
+  border: none;
+  font-size: 15px;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 1rem;
+}
+
+.error {
+  color: darkred;
+}

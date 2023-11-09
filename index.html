@@ -4,40 +4,68 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <script>
       const contactlistArray = [];
 
+      function rendercontactlist() {
+        let contactlistArrayHTML = "";
+
+        for (let i = 0; i < contactlistArray.length; i++) {
+          const contactObject = contactlistArray[i];
+          //const name = contactObject.name;
+          //const phone = contactObject.phone;
+          const { name, phone } = contactObject;
+          // let div = createElement('div');
+          //div.setAttribute('class', 'flex')
+          const html = `
+            <div> ${name}</div>
+            <div> ${phone}</div>
+            <button onclick='contactlistArray.editData(${i}, 1); rendercontactlist();' class='edit' >Ändra</buuton>
+            <button onclick='contactlistArray.splice(${i}, 1);
+                rendercontactlist();' class='remove'>Radera</button>
+            `;
+          contactlistArrayHTML += html;
+        }
+        document.querySelector(".contactlist").innerHTML = contactlistArrayHTML;
+      }
+
       function add() {
         const nameInput = document.getElementById("name").value;
         const phoneInput = document.getElementById("phonenumber").value;
-
+        let errorMessage = document.getElementById("errormessage");
         if (nameInput && phoneInput) {
-          console.log("hello");
           const form = document.getElementById("contactlistform");
           form.reset();
+          contactlistArray.push({ name: nameInput, phone: phoneInput });
+          errorMessage.innerHTML = "";
 
-          document.querySelector(
-            ".contactlist"
-          ).innerHTML = `${nameInput} ${phoneInput}`;
+          rendercontactlist();
         } else {
-          const message = "Var god fyll i båda fälten";
-          document.getElementById("errormessage").innerHTML = message;
+          const message = "Var god fyll i båda fälten!";
+          errorMessage.innerHTML = message;
         }
-        contactlistArray.push(nameInput, phoneInput);
-        console.log(contactlistArray);
       }
     </script>
 
-    <form id="contactlistform">
-      <input id="name" type="text" placeholder="Namn.." />
-      <input id="phonenumber" type="tel" placeholder="Telefon.." />
-      <button type="button" onclick="add()">Skapa</button>
-      <button>Radera lista</button>
+    <h1>Kontaktlista</h1>
+    <h2>Lägg till ny kontakt</h2>
+
+    <form id="contactlistform" class="form">
+      <input class="name" id="name" type="text" placeholder="Namn.." />
+      <input
+        class="phone"
+        id="phonenumber"
+        type="tel"
+        placeholder="Telefon.."
+      />
+      <button class="add" type="button" onclick="add()">Skapa</button>
+      <button class="remove">Radera lista</button>
     </form>
-    <p id="errormessage"></p>
-    <h2>Kontaktlista</h2>
-    <p class="contactlist"></p>
+    <p class="error" id="errormessage"></p>
+
+    <div class="contactlist"></div>
   </body>
 </html>
