@@ -36,6 +36,8 @@ function add() {
   }
 }
 function edit(index) {
+  let errorMessage = document.getElementById("message");
+
   const nameInput = document.getElementById(`nameInput-${index}`);
   nameInput.removeAttribute("readonly");
   nameInput.className = "input";
@@ -43,17 +45,26 @@ function edit(index) {
   phoneInput.removeAttribute("readonly");
   phoneInput.className = "input";
   const button = document.getElementById(`editButton-${index}`);
-  button.innerHTML = "spara";
+  button.innerHTML = "Spara";
+  button.className = "add";
   button.removeAttribute("onclick");
   button.onclick = saveEdit;
 
   function saveEdit() {
-    nameInput.setAttribute("readonly", true);
-    phoneInput.setAttribute("readonly", true);
-    nameInput.className = "input input-color";
-    phoneInput.className = "input input-color";
-    button.innerHTML = "Ändra";
-    button.onclick = () => edit(index);
+    if (nameInput.value && phoneInput.value) {
+      nameInput.setAttribute("readonly", true);
+      phoneInput.setAttribute("readonly", true);
+      nameInput.className = "input input-color";
+      phoneInput.className = "input input-color";
+      button.innerHTML = "Ändra";
+      button.className = "edit";
+      errorMessage.innerHTML = "";
+
+      button.onclick = () => edit(index);
+    } else {
+      const message = "Var god fyll i båda fälten!";
+      errorMessage.innerHTML = message;
+    }
   }
 }
 
