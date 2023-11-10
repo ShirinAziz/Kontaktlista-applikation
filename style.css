@@ -1,13 +1,18 @@
 body {
-  background-color: blanchedalmond;
+  background-color: rgb(24, 39, 41);
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+h1 {
+  font-size: 50px;
+  font-family: cursive;
+  color: beige;
+}
 .contactlist,
 .form {
   display: grid;
-  grid-template-columns: 200px 200px 100px 100px;
+  grid-template-columns: 200px 200px 100px 110px;
   column-gap: 10px;
   row-gap: 10px;
   align-items: center;
@@ -24,7 +29,8 @@ body {
   border-radius: 1rem;
 }
 .input-color {
-  background-color: blanchedalmond;
+  background-color: rgb(32, 53, 56);
+  color: beige;
 }
 .add {
   background-color: green;
@@ -33,12 +39,12 @@ body {
   background-color: darkred;
 }
 .edit {
-  background-color: rgb(111, 98, 82);
+  background-color: rgb(72, 59, 78);
 }
 .add,
 .remove,
 .edit {
-  color: white;
+  color: beige;
   border: none;
   font-size: 15px;
   cursor: pointer;
@@ -47,5 +53,6 @@ body {
 }
 
 .error {
+  background-color: beige;
   color: darkred;
 }

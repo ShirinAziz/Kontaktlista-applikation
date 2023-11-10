@@ -5,8 +5,6 @@ function rendercontactlist() {
 
   for (let i = 0; i < contactlistArray.length; i++) {
     const contactObject = contactlistArray[i];
-    //const name = contactObject.name;
-    //const phone = contactObject.phone;
     const { name, phone } = contactObject;
     const html = `
             <input class='input input-color' id='nameInput-${i}' type='text' value=${name} readonly> 
@@ -66,6 +64,10 @@ function edit(index) {
       errorMessage.innerHTML = message;
     }
   }
+}
+function removeList() {
+  contactlistArray.length = [];
+  rendercontactlist();
 }
 
 function remove(index) {

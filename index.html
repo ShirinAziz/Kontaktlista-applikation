@@ -3,13 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Kontaktlista</title>
     <link rel="stylesheet" href="style.css" />
     <script src="javascript.js"></script>
   </head>
   <body>
     <h1>Kontaktlista</h1>
-    <h2>Lägg till ny kontakt</h2>
 
     <form id="contactlistform" class="form">
       <input class="name" id="name" type="text" placeholder="Namn.." />
@@ -20,11 +19,13 @@
         placeholder="Telefon.."
       />
       <button class="add" type="button" onclick="add()">Skapa</button>
-      <button class="remove">Radera lista</button>
+      <button class="remove" type="button" onclick="removeList()">
+        Radera listan
+      </button>
     </form>
-    <p class="error" id="errormessage"></p>
+    <h2 class="error" id="errormessage"></h2>
 
     <div class="contactlist"></div>
-    <p class="error" id="message"></p>
+    <h2 class="error" id="message"></h2>
   </body>
 </html>
