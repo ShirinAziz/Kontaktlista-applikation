@@ -1,4 +1,5 @@
 const contactlistArray = [];
+const message = "Var god fyll i båda fälten korrekt";
 
 function rendercontactlist() {
   let contactlistArrayHTML = "";
@@ -21,7 +22,8 @@ function add() {
   const nameInput = document.getElementById("name").value;
   const phoneInput = document.getElementById("phonenumber").value;
   let errorMessage = document.getElementById("errormessage");
-  if (nameInput && phoneInput) {
+
+  if (isValid(nameInput, phoneInput)) {
     const form = document.getElementById("contactlistform");
     form.reset();
     contactlistArray.push({ name: nameInput, phone: phoneInput });
@@ -29,7 +31,6 @@ function add() {
 
     rendercontactlist();
   } else {
-    const message = "Var god fyll i båda fälten!";
     errorMessage.innerHTML = message;
   }
 }
@@ -49,7 +50,7 @@ function edit(index) {
   button.onclick = saveEdit;
 
   function saveEdit() {
-    if (nameInput.value && phoneInput.value) {
+    if (isValid(nameInput.value, phoneInput.value)) {
       nameInput.setAttribute("readonly", true);
       phoneInput.setAttribute("readonly", true);
       nameInput.className = "input input-color";
@@ -60,10 +61,16 @@ function edit(index) {
 
       button.onclick = () => edit(index);
     } else {
-      const message = "Var god fyll i båda fälten!";
       errorMessage.innerHTML = message;
     }
   }
+}
+
+function isValid(name, phone) {
+  if (name && phone.length > 10) {
+    return true;
+  }
+  return false;
 }
 function removeList() {
   contactlistArray.length = [];
