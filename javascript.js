@@ -67,7 +67,7 @@ function edit(index) {
 }
 
 function isValid(name, phone) {
-  if (name && phone.length > 10) {
+  if (name && phone.length >= 10 && phone.length < 11) {
     return true;
   }
   return false;
